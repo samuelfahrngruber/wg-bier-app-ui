@@ -30,12 +30,9 @@
 		--seg-col-on: ${digitColor};
 		--seg-col-off: ${digitShadow};
     `;
-
-	const clazz = $$props.class;
-	const style = $$props.style;
 </script>
 
-<div class="sev-seg-container {clazz}" style="{style}; {sevSegCssVars}">
+<div class="sev-seg-container" style={sevSegCssVars}>
 	<div class="sev-seg seg-h seg-0 {sevSegOnClass(0n)}" />
 	<div class="sev-seg seg-v seg-1 {sevSegOnClass(1n)}" />
 	<div class="sev-seg seg-v seg-2 {sevSegOnClass(2n)}" />
