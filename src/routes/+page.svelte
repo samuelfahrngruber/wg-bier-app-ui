@@ -1,45 +1,124 @@
 <script>
 	import SevenSegNum from '$lib/seven-seg/seven-seg-num.svelte';
+	import Button from '$lib/button.svelte';
 
 	const currentSeason = {
 		num: 3,
 		players: [
-			{ name: 'tippi', count: 20 },
-			{ name: 'sam', count: 15 }
+			{ name: 'Tippi', count: 20 },
+			{ name: 'Sam', count: 15 }
 		]
 	};
 </script>
 
 <div class="container">
-	<div class="scoreboard">
-		{#each currentSeason.players as player}
-			<div class="scoreboard-entry">
-				<span>{player.name}</span>
-				<div class="score">
-					<SevenSegNum input={player.count} digitCount={8} />
+	<div class="content">
+		<h1 class="season-heading">&gt; Season~{currentSeason.num}</h1>
+		<div class="scoreboard">
+			{#each currentSeason.players as player, idx}
+				<div class="scoreboard-entry">
+					<span class="place">{idx + 1}. </span>
+					<span class="player-label">{player.name}</span>
+					<div class="score">
+						<SevenSegNum input={player.count} digitCount={4} />
+					</div>
+					<div class="operations">
+						<Button onClick={() => undefined}>
+							<div class="btn-txt incrementer">+</div>
+						</Button>
+						<Button onClick={() => undefined}>
+							<div class="btn-txt incrementer">-</div>
+						</Button>
+					</div>
 				</div>
-			</div>
-		{/each}
+				<hr class="divider" />
+			{/each}
+		</div>
+		<div class="window-footer">
+			<Button onClick={() => undefined}>
+				<div class="btn-txt new-player-btn-content">Add a new Player</div>
+			</Button>
+		</div>
 	</div>
 </div>
 
 <style scoped>
 	.container {
-		display: flex;
-		flex-direction: column;
-		align-items: center;
-		background-color: #c9c1ad;
+		height: 100%;
+		widows: 100%;
+		display: grid;
+		grid-template: 10% 80% 10% / 10% 80% 10%;
+		background-color: var(--background-page);
+		font-family: monospace;
 	}
-	.scoreboard {
+	.season-heading {
+		color: var(--text-color);
+		font-family: monospace;
+		margin: 0;
+	}
+	.content {
+		grid-row: 2;
+		grid-column: 2;
+
 		display: flex;
 		flex-direction: column;
 		gap: 32px;
+		padding: 32px;
+
+		border-width: 4px;
+		border-color: var(--border-bright) var(--border-dark) var(--border-dark) var(--border-bright);
+		border-style: solid;
+		background-color: var(--background-surface);
+	}
+	.scoreboard {
+		border-width: 4px;
+		border-color: var(--border-dark) var(--border-bright) var(--border-bright) var(--border-dark);
+		border-style: solid;
+		background-color: var(--background-surface);
+		flex: 1;
 	}
 	.scoreboard-entry {
 		display: flex;
 		align-items: center;
+		gap: 16px;
+		padding: 16px;
+	}
+	.divider {
+		border: 2px solid var(--border-divider);
 	}
 	.score {
-		background-color: black;
+		border-width: 4px;
+		border-color: var(--border-dark) var(--border-bright) var(--border-bright) var(--border-dark);
+		border-style: solid;
+		background-color: var(--background-container);
+	}
+	.player-label {
+		flex: 1;
+		color: var(--text-color);
+		font-size: 32px;
+	}
+
+	.place {
+		color: var(--text-color-emphasized);
+		font-size: 32px;
+	}
+	.btn-txt {
+		font-size: 32px;
+		margin: 4px;
+	}
+	.incrementer {
+		width: 32px;
+		height: 32px;
+	}
+	.operations {
+		display: flex;
+		flex-direction: column;
+		gap: 16px;
+	}
+	.new-player-btn-content {
+		margin: 8px 32px;
+	}
+	.window-footer {
+		display: flex;
 	}
 </style>

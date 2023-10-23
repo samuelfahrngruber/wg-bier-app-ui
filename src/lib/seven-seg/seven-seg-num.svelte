@@ -2,7 +2,7 @@
 	import SevenSegDigit from './seven-seg-digit.svelte';
 
 	export let digitColor = '#ff0000ff';
-	export let digitShadow = '#80808040';
+	export let digitShadow = '#80808020';
 
 	export let height: number = 64;
 	export let input: number;
