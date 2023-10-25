@@ -2,6 +2,7 @@
 	import SevenSegNum from '$lib/seven-seg/seven-seg-num.svelte';
 	import Button from '$lib/button.svelte';
 	import Window from '$lib/window.svelte';
+	import Divider from '$lib/divider.svelte';
 
 	const currentSeason = {
 		num: 3,
@@ -33,7 +34,7 @@
 							</Button>
 						</div>
 					</div>
-					<hr class="divider" />
+					<Divider />
 				{/each}
 			</div>
 			<div slot="footer">
@@ -69,9 +70,6 @@
 		gap: 16px;
 		padding: 16px;
 	}
-	.divider {
-		border: 2px solid var(--border-divider);
-	}
 	.score {
 		border-width: 4px;
 		border-color: var(--border-dark) var(--border-bright) var(--border-bright) var(--border-dark);
@@ -103,8 +101,5 @@
 	}
 	.new-player-btn-content {
 		margin: 8px 32px;
-	}
-	.window-footer {
-		display: flex;
 	}
 </style>
