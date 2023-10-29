@@ -1,4 +1,4 @@
-# ⚠️⚠️⚠️ This is outdated and now part of [Sol000's wg-bier-manager}(https://github.com/Sol000/wg-bier-manager) ⚠️⚠️⚠️
+# ⚠️⚠️⚠️ This is outdated and now part of [Sol000's wg-bier-manager](https://github.com/Sol000/wg-bier-manager) ⚠️⚠️⚠️
 
 ===
 
